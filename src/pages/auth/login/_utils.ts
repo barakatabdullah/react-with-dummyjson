@@ -1,5 +1,5 @@
 import api from "@/config/axios";
-import { setUserName, setUserToken } from "@/stores/auth";
+import { setUserName, setUserToken } from "@/stores/user";
 import router from "@/router";
 import { AxiosResponse } from 'axios';
 
@@ -8,12 +8,12 @@ interface LoginResponse {
     jwToken: string;
 }
 
-export const onSubmit = async (data:{email:string,password:string}) => {
-    const res: AxiosResponse<LoginResponse> = await api.post<LoginResponse>("/Account/login",{
+export const onSubmit = async (data:{username:string,password:string}) => {
+    const {data}: AxiosResponse<LoginResponse> = await api.post<LoginResponse>("/auth/login",{
         
-            email: data.email,
+            username: data.username,
             password: data.password,
-          
+            expiresInMins: 30,
     });
     console.log(res)
     if(res.status ===200){

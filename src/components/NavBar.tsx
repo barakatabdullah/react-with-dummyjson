@@ -1,6 +1,6 @@
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
-import { setUserToken } from '../stores/auth';
+import { setUserToken } from '../stores/user';
 
 export default function NavBar() {
   const navigate = useNavigate();

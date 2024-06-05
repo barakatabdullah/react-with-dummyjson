@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface AuthStore{
+interface UserStore{
     name:string| null
     token:string| null
     actions:{
@@ -10,7 +10,7 @@ interface AuthStore{
     }
 }
 
-export const useAuthStore= create<AuthStore>((set,get) => ({
+export const useUserStore= create<UserStore>((set,get) => ({
     name: localStorage.getItem('user'),
     token: localStorage.getItem('token'),
 
@@ -28,4 +28,4 @@ export const useAuthStore= create<AuthStore>((set,get) => ({
 
   }))
 
-  export const { setUserName,setUserToken,getUserToken } = useAuthStore.getState().actions
+  export const { setUserName,setUserToken,getUserToken } = useUserStore.getState().actions
