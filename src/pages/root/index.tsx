@@ -16,18 +16,21 @@ export default function Home() {
     <div className="container mx-auto flex flex-col gap-4">
       <h2 className="my-8 text-5 font-bold">Products</h2>
 
-      <DataView
+<div>
+<DataView
         value={data?.products}
         loading={isLoading}
         layout="grid"
         pt={{
-          content: { className: "bg-transparent!" },
-          grid: { className: "grid grid-cols-4 gap-4" },
+          root:{className:'rounded-6 overflow-hidden'},
+          content: { className: "p2" },
+          grid: { className: "grid grid-cols-5 gap-4" },
         }}
         itemTemplate={ItemTemplate}
-        // paginator
-        // rows={30}
+        paginator
+        rows={10}
       />
+</div>
     </div>
   );
 }
