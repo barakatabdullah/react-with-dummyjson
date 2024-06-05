@@ -1,4 +1,3 @@
-import { InputText } from "primereact/inputText";
 import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";

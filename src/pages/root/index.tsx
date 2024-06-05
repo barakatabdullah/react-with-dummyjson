@@ -2,6 +2,7 @@ import { DataView } from "primereact/dataview";
 import { getProducts } from "./_utils";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { ItemTemplate } from "./_components/ItemsTemplate";
+import { Button } from "primereact/button";
 
 export default function Home() {
   const { isLoading, data, } = useQuery({
@@ -14,7 +15,10 @@ export default function Home() {
 
   return (
     <div className="container mx-auto flex flex-col gap-4">
+      <div className="flex items-center justify-between">
       <h2 className="my-8 text-5 font-bold">Products</h2>
+      <Button label="Add Product" onClick={() => {}} icon="i-tabler-plus" />
+      </div>
 
 <div>
 <DataView

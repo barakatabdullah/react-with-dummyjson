@@ -5,7 +5,7 @@ import { ItemTemplate } from "./_components/ItemTemplate";
 
 
 
-const listTemplate = (items) => {
+export const listTemplate = (items) => {
     if (!items || items.length === 0) return null;
 
     const list = items.map((product, index) => {
