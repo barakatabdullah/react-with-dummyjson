@@ -5,7 +5,7 @@ import { Product } from "../../../typs";
 import { Tag } from "primereact/tag";
 import { useNavigate } from "react-router-dom";
 
-export function itemTemplate(product:Product) {
+export function ItemTemplate(product:Product) {
     const navigate = useNavigate();
     const cardHeader = (product:Product) => (
         <div className="overflow-hidden rounded-2xl top-0 flex flex-col relative h-60">

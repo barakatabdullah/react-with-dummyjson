@@ -1,10 +1,10 @@
 import { DataView } from "primereact/dataview";
 import { getProducts } from "./_utils";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { itemTemplate } from "./_components/ItemsTemplate";
+import { ItemTemplate } from "./_components/ItemsTemplate";
 
 export default function Home() {
-  const { isLoading, data } = useQuery({
+  const { isLoading, data, } = useQuery({
     placeholderData: keepPreviousData,
     queryKey: ["products"],
     queryFn: getProducts,
@@ -24,7 +24,9 @@ export default function Home() {
           content: { className: "bg-transparent!" },
           grid: { className: "grid grid-cols-4 gap-4" },
         }}
-        itemTemplate={itemTemplate}
+        itemTemplate={ItemTemplate}
+        // paginator
+        // rows={30}
       />
     </div>
   );

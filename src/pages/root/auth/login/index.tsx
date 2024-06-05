@@ -6,9 +6,9 @@ import { Card } from "primereact/card";
 import { useForm, Controller } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
-import api from "../../../config/axios";
+import api from "../../../../config/axios";
 import { useMutation } from "@tanstack/react-query";
-import { setUserName, setUserToken } from "../../../stores/user";
+import { setUserName, setUserToken } from "../../../../stores/user";
 
 interface FieldValues {
   username: string;

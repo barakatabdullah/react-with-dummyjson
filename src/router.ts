@@ -4,10 +4,9 @@ import {
 
   } from "react-router-dom";
 import Layout from "./pages/Layout";
-import Home from "./pages/home/index";
-import Loan from "./pages/loan";
-
-import login from "./pages/auth/login";
+import login from "./pages/root/auth/login";
+import Home from "./pages/root";
+import Product from "./pages/root/product";
 
 
 
@@ -22,8 +21,8 @@ const router = createBrowserRouter([
           Component: Home,
         },
         {
-            path:"/loan",
-            Component: Loan,
+            path:"/product",
+            Component: Product,
           },
      
       ],
