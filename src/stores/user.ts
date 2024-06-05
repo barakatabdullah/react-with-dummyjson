@@ -20,7 +20,7 @@ export const useUserStore= create<UserStore>((set,get) => ({
         setUserName(username:string){
             set({username})
         },
-        setUserToken(token:string){
+        setUserToken(token:string|null){
             set({token})
         },
     }

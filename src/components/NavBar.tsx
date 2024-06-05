@@ -12,7 +12,6 @@ export default function NavBar() {
 
             <div className="flex gap-4">
                 <Button outlined  text onClick={()=>navigate('/')}  label='Home' className="text-white"/>
-                <Button  text onClick={()=>navigate('loan')}  label='Loan' className="text-white"/>
             </div>
 
             <div>

@@ -42,9 +42,9 @@ export function ItemTemplate(product:Product) {
             title={product.title}
             subTitle={(
                 <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-2">
                     <i className="i-tabler-tag block"></i>
-                    <span className="text-5">{product.category}</span>
+                    <span className="text-4 font-bold">{product.category}</span>
                     </div>
                     <Tag value={product.stock > 0 ? "In stock" : "Out of stock"} severity={product.stock === 0 ? 'danger':product.stock >10? 'success':'warning'} ></Tag>
                 </div>
@@ -54,6 +54,7 @@ export function ItemTemplate(product:Product) {
             key={product.id}
             className="rounded-2xl "
             pt={{
+                root:{className:'shadow-none! border'},
                 title: { className: "h-20 truncate" },
                 content: { className: "p1!" },
             }}
