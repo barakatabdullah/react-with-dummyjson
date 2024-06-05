@@ -12,7 +12,7 @@ export function ItemTemplate(item: CartItem) {
         queryFn: ()=> getProduct(item.id),
       });
 
-    return <Card>
+    return <Card className="shadow-none! border">
         <div className="flex gap-4 items-center justify-between">
             <div className="flex gap-4 items-center">
                 <div className="h-full rounded-2 border aspect-square">
