@@ -6,9 +6,9 @@ import { Card } from "primereact/card";
 import { getProduct } from "../../product/_utils";
 import { queryClient } from "../../../../config/queryClient";
 
-export function ItemTemplate(item: CartItem) {
+export function ItemTemplate(item: CartItem,index) {
     const {data } = useQuery({
-        queryKey: ["product"],
+        queryKey: ["product",index],
         queryFn: ()=> getProduct(item.id),
       });
 
@@ -29,6 +29,9 @@ export function ItemTemplate(item: CartItem) {
             </div>
 
             <div className="flex gap-4 items-center">
+            <div>
+            quantity:{item.quantity}
+                </div>
                 <div>
                     total:${data?.price * item.quantity}
                 </div>

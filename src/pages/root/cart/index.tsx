@@ -2,13 +2,14 @@
 import { DataView } from "primereact/dataview";
 import { useUserStore } from "../../../stores/user";
 import { ItemTemplate } from "./_components/ItemTemplate";
+import { CartItem } from "../../../typs";
 
 
 
-export const listTemplate = (items) => {
+export const listTemplate = (items:CartItem[]) => {
     if (!items || items.length === 0) return null;
 
-    const list = items.map((product, index) => {
+    const list = items.map((product:CartItem, index:number) => {
         return ItemTemplate(product, index);
     });
 

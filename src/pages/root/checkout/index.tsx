@@ -32,9 +32,9 @@ export default function Checkout() {
           }
           footer={
             (
-              <div>
+              <div className="flex justify-between items-center">
                 <span>Total:</span>
-                {/* <span>${userStore?.cart.reduce((a, b) => a + b.price, 0)}</span> */}
+                <span className="text-5 font-bold">${userStore?.cart.reduce((a, b) => a + b.price*b.quantity, 0)}</span>
               </div>
             )
           }
