@@ -7,6 +7,8 @@ import Layout from "./pages/Layout";
 import login from "./pages/root/auth/login";
 import Home from "./pages/root";
 import Product from "./pages/root/product";
+import Cart from "./pages/root/cart";
+import AddProduct from "./pages/root/product/add";
 
 
 
@@ -21,8 +23,22 @@ const router = createBrowserRouter([
           Component: Home,
         },
         {
-            path:"/product/{id}",
-            Component: Product,
+            path:"product",
+
+            children:[
+              {
+                path:":id",
+                Component: Product,
+              },
+              {
+                path:"add",
+                Component: AddProduct,
+              },
+            ]
+          },
+          {
+            path:"cart",
+            Component: Cart,
           },
      
       ],
