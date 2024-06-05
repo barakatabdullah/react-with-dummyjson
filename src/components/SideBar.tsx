@@ -45,12 +45,12 @@ const items = [
 ];
 export default function SideBar() {
     return (
-        <div className="h-screen w-16rem">
+        <div className="h-screen w-15rem">
 
             <div className="card flex justify-center h-full fixed">
                 <Menu pt={{
                     root: { className: 'rounded-l-0!' },
-                }} model={items} className="w-full md:w-15rem" />
+                }} model={items} className=" w-15rem" />
             </div>
         </div>
     )

@@ -9,9 +9,13 @@ export default function Layout() {
 
   return (
     <AuthGuard>
-      <div className='w-screen min-h-screen flex'>
+      <div className=' min-h-screen flex '>
+        <div>
         <SideBar />
+        </div>
+        <div className='p-6 w-full'>
         <Outlet />
+        </div>
       </div>
     </AuthGuard>
 

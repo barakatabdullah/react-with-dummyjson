@@ -14,7 +14,7 @@ export default function Home() {
 
 
   return (
-    <div className="container mx-auto flex flex-col gap-4">
+    <div className=" flex flex-col gap-4 p-6">
       <div className="flex items-center justify-between">
       <h2 className="my-8 text-5 font-bold">Products</h2>
       <Button label="Add Product" onClick={() => {}} icon="i-tabler-plus" />
@@ -28,7 +28,7 @@ export default function Home() {
         pt={{
           root:{className:'rounded-6 overflow-hidden'},
           content: { className: "p2" },
-          grid: { className: "grid grid-cols-5 gap-4" },
+          grid: { className: "grid grid-cols-4 gap-4" },
         }}
         itemTemplate={ItemTemplate}
         paginator
