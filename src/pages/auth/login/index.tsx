@@ -5,14 +5,39 @@ import { Card } from "primereact/card";
 
 import { useForm, Controller } from "react-hook-form";
 
-
-
-import { onSubmit } from "./_utils";
 import { useNavigate } from "react-router-dom";
+import api from "../../../config/axios";
+import { useMutation } from "@tanstack/react-query";
+import { setUserName, setUserToken } from "../../../stores/user";
+
 
 export default function Login() {
   const methods = useForm();
   const navigate=useNavigate()
+
+
+  const onSubmit = (data) => {
+    mutateAsync(data);
+    }
+
+  const {mutateAsync} = useMutation({
+    mutationFn: async (data) => {
+      const res = await api
+        .post('/auth/login', {
+          username: data.username,
+          password: data.password
+        })
+      return res
+    },
+    onSuccess: (res) => {
+      setUserName(res.data.username)
+      setUserToken(res.data.token) 
+      localStorage.setItem('name', res.data.username)
+      localStorage.setItem('token', res.data.token)
+      navigate('/')
+    }
+  })
+  
   
   return (
     <div className="w-screen h-screen flex gap-4 items-center justify-center">
@@ -24,15 +49,15 @@ export default function Login() {
         >
           <div className="flex flex-col gap-2 ">
             <label className="font-bold" htmlFor="email">
-              Email
+              UserName
             </label>
             <Controller
               control={methods.control}
               rules={{
                 required: true,
               }}
-              render={({ field }) => <InputText {...field} id="email" />}
-              name="email"
+              render={({ field }) => <InputText {...field} id="username" />}
+              name="username"
             />
           </div>
           <div className="flex flex-col gap-2 ">
@@ -57,14 +82,6 @@ export default function Login() {
 
           <Button label="Login" type="submit" />
         </form>
-        <div className="flex justify-center w-full">
-            <Button
-            label="Register new account"
-            link
-            onClick={()=>navigate('/auth/register')}
-
-            />
-        </div>
       </Card>
     </div>
   );
