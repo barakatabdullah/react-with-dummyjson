@@ -5,7 +5,9 @@ import { useForm, Controller } from "react-hook-form";
 import { getCategories } from "./_utils";
 import { useQuery } from "@tanstack/react-query";
 import { Toast } from "primereact/toast";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { classNames } from "primereact/utils";
+import { InputNumber } from "primereact/inputnumber";
 
 
 export default function AddProduct() {
@@ -18,10 +20,16 @@ export default function AddProduct() {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    toast.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
+    toast.current?.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
   };
+  const [price, setPrice] = useState(0);
 
-    const methods = useForm();
+    const methods = useForm(
+      {
+
+        mode:'all'
+      }
+    );
     return(
         
     <div className="w-full p-6 flex gap-4 items-center justify-center">
@@ -41,9 +49,15 @@ export default function AddProduct() {
           <Controller
             control={methods.control}
             rules={{
-              required: true,
+              required: "Title is required",
             }}
-            render={({ field }) => <InputText {...field} id="title" />}
+            render={({ field,fieldState }) => (
+              <>
+              <InputText  className={classNames({ 'p-invalid': fieldState.error })} {...field} id="title" />
+              
+              <span className="text-red">{fieldState.error?.message}</span>
+              </>
+              )}
             name="title"
           />
         </div>
@@ -54,9 +68,15 @@ export default function AddProduct() {
           <Controller
             control={methods.control}
             rules={{
-              required: true,
+              required: "Description is required",
             }}
-            render={({ field }) => <InputText {...field} id="description" />}
+            render={({ field,fieldState }) => (
+              <>
+              <InputText  className={classNames({ 'p-invalid': fieldState.error })} {...field} id="description" />
+              
+              <span className="text-red">{fieldState.error?.message}</span>
+              </>
+              )}
             name="description"
           />
         </div>
@@ -67,9 +87,15 @@ export default function AddProduct() {
           <Controller
             control={methods.control}
             rules={{
-              required: true,
+              required: "Category is required",
             }}
-            render={({ field }) => <Dropdown options={data}  {...field} id="category" />}
+            render={({ field,fieldState }) =>(
+              <>
+              <Dropdown options={data}  {...field} id="category" />
+              <span className="text-red">{fieldState.error?.message}</span>
+
+              </>
+            )}
             name="category"
           />
         </div>
@@ -80,9 +106,17 @@ export default function AddProduct() {
           <Controller
             control={methods.control}
             rules={{
-              required: true,
+              required: "Price is required",
+              min: 1,
+              max: 10000,
             }}
-            render={({ field }) => <InputText {...field} id="price" />}
+            render={({ field,fieldState }) => (
+              <>
+              <InputNumber value={price} onValueChange={(e) => setPrice(e.value)} className={classNames({ 'p-invalid': fieldState.error })} id="price" />
+              <span className="text-red">{fieldState.error?.message}</span>
+
+              </>
+            )}
             name="price"
           />
         </div>
@@ -92,9 +126,7 @@ export default function AddProduct() {
           </label>
           <Controller
             control={methods.control}
-            rules={{
-              required: true,
-            }}
+
             render={({ field }) => <InputText {...field} id="brand" />}
             name="brand"
           />
