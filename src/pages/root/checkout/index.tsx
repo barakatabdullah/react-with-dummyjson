@@ -2,9 +2,9 @@ import { InputText } from "primereact/inputText";
 import { useForm, Controller } from "react-hook-form";
 import { Card } from "primereact/card";
 import { DataView } from "primereact/dataview";
-import { listTemplate } from "../cart/index";
 import { useUserStore } from "@/stores/user";
 import { Button } from "primereact/button";
+import CartList from "../cart/_components/ListTemplate";
 
 
 
@@ -43,7 +43,7 @@ export default function Checkout() {
           <div className="container mx-auto flex flex-col gap-4">
             <DataView
               value={userStore?.cart}
-              listTemplate={listTemplate}
+              listTemplate={CartList}
             />
           </div>
         </Card>
