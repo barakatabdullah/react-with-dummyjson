@@ -6,7 +6,7 @@ import { Card } from "primereact/card";
 import { getProduct } from "../../product/_utils";
 import { queryClient } from "../../../../config/queryClient";
 
-export function ItemTemplate(item: CartItem,index) {
+export function ItemTemplate(item: CartItem,index:number) {
     const {data } = useQuery({
         queryKey: ["product",index],
         queryFn: ()=> getProduct(item.id),
@@ -42,8 +42,8 @@ export function ItemTemplate(item: CartItem,index) {
             <Button
                 icon="i-tabler-trash"
                 link
-                onClick={()=>{
-                    removeFromCart(item)
+                onClick={async ()=>{
+                    await removeFromCart(item)
                     queryClient.invalidateQueries({ queryKey: ['product'] })
                 }}
                 />

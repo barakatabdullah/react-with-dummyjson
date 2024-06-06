@@ -7,13 +7,18 @@ import { CartItem } from "../../../typs";
 
 
 export const listTemplate = (items:CartItem[]) => {
-    if (!items || items.length === 0) return null;
+    const ListTemplate = ({items}:{items:CartItem[]}) => {
+    
+        if (!items || items.length === 0) return null;
 
-    const list = items.map((product:CartItem, index:number) => {
-        return ItemTemplate(product, index);
-    });
+        const list = items.map((product:CartItem, index:number) => {
+            return <div key={index}>{ItemTemplate(product, index)}</div>;
+        });
+        
+        return <div className="grid grid-nogutter">{list}</div>;
+    };
 
-    return <div className="grid grid-nogutter">{list}</div>;
+    return <ListTemplate items={items} />
 };
 
 export default function Cart() {
@@ -29,3 +34,4 @@ export default function Cart() {
         </div>
     );
 }
+
