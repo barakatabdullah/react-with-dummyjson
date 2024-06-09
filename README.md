@@ -1,4 +1,4 @@
-##Tech Stack
+#Tech Stack
 
 Vite: Ultra-fast bundler for lightning-quick development experience
 React: Popular JavaScript library for building user interfaces
