@@ -1,8 +1,12 @@
-###Tech Stack
+## Tech Stack
 
 Vite: Ultra-fast bundler for lightning-quick development experience
 React: Popular JavaScript library for building user interfaces
 TypeScript: Superset of JavaScript for static type checking
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/11247099/154486817-f86b8f20-5463-4122-b6e9-930622e757f2.png' alt='Vitesse - Opinionated Vite Starter Template' width='600'/>
+</p>
 
 
 ## Usage
