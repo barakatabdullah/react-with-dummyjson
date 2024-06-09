@@ -1,4 +1,4 @@
-#Tech Stack
+###Tech Stack
 
 Vite: Ultra-fast bundler for lightning-quick development experience
 React: Popular JavaScript library for building user interfaces
@@ -34,6 +34,8 @@ And you will see the generated file in `dist` that ready to be served.
 
 Project Structure
 
+```bash
+
 your-project-name/
 ├── public/           # Static assets (HTML, CSS, images, etc.)
 ├── src/              # Application source code
@@ -46,4 +48,5 @@ your-project-name/
 │       └── ...
 ├── package.json      # Project dependencies and scripts
 ├── tsconfig.json     # TypeScript configuration
-└── ...                # Other configuration files (optional)
+└── ...
+```             # Other configuration files (optional)
