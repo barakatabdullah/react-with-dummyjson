@@ -5,20 +5,32 @@ React: Popular JavaScript library for building user interfaces
 TypeScript: Superset of JavaScript for static type checking
 
 
-###Install dependencies:
+## Usage
 
-Bash
+### Development
 
-npm install  # or pnpm install
-Use code with caution.
+Just run and visit http://localhost:3333
 
-###Development server:
+```bash
+pnpm install
+```
 
-Bash
-npm run dev  # or pnpm dev
-Use code with caution.
+```bash
+pnpm dev
+```
 
-This will start the development server at http://localhost:5173/ by default.
+### Build
+
+To build the App, run
+
+```bash
+pnpm build
+```
+
+And you will see the generated file in `dist` that ready to be served.
+
+
+
 
 Project Structure
 
