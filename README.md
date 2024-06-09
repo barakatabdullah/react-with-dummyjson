@@ -13,7 +13,7 @@ TypeScript: Superset of JavaScript for static type checking
 
 ### Development
 
-Just run and visit http://localhost:3333
+Just run and visit http://localhost:5173
 
 ```bash
 pnpm install
